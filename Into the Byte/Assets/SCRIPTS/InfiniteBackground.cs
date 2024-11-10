@@ -1,63 +1,118 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//public class InfiniteBackground : MonoBehaviour
+//{
+//    public Transform player;                        // Reference to the player
+//    public GameObject[] platformPrefabs;            // Array of platform prefabs
+//    public Vector3[] spawnPositions;                // Array of custom spawn positions
+//    private int currentPlatformIndex = 0;           // Tracks the current platform in spawnPositions
+//    private GameObject currentPlatform;             // Holds reference to the active platform
 
-//original script
+//    void Start()
+//    {
+//        // Ensure there are platform prefabs and spawn positions
+//        if (platformPrefabs.Length == 0 || spawnPositions.Length == 0)
+//        {
+//            Debug.LogError("Please assign platform prefabs and spawn positions.");
+//            return;
+//        }
+
+//        // Instantiate the initial platform at the first spawn position
+//        currentPlatform = Instantiate(platformPrefabs[Random.Range(0, platformPrefabs.Length)]);
+//        currentPlatform.transform.position = spawnPositions[currentPlatformIndex];
+//    }
+
+//    void Update()
+//    {
+//        // Check if the player has reached the spawn trigger point for the next platform
+//        if (currentPlatformIndex < spawnPositions.Length - 1 &&
+//            player.position.x > spawnPositions[currentPlatformIndex].x)
+//        {
+//            // Destroy the old platform, instantiate and position a new one at the next spawn position
+//            Destroy(currentPlatform);
+//            currentPlatformIndex++;
+//            currentPlatform = Instantiate(platformPrefabs[Random.Range(0, platformPrefabs.Length)]);
+//            currentPlatform.transform.position = spawnPositions[currentPlatformIndex];
+//        }
+//    }
+//}
+//working script
 public class InfiniteBackground : MonoBehaviour
 {
-    public Transform player;                  // Reference to the player
-    public SpriteRenderer platformPrefab;     // Prefab for spawning platforms
-    public int initialPlatformCount = 3;      // Number of platforms to spawn initially
-
-    private SpriteRenderer[] platforms;       // Array to store platform instances
-    private float platformWidth;              // Width of each platform
+    public Transform player;                        // Reference to the player
+    public GameObject[] platformPrefabs;            // Array of platform prefabs
+    private GameObject[] activePlatforms;           // Array to hold active platform instances
+    private float platformWidth;                    // Width of each platform
+    private int currentPlatformIndex = 0;           // Index of the current platform
+    private float spawnBuffer =2;                      // Distance buffer for early spawning
 
     void Start()
     {
-        // Calculate the width of a single platform based on the prefab's bounds
-        platformWidth = platformPrefab.bounds.size.x;
-
-        // Initialize the platform array and spawn the initial platforms
-        platforms = new SpriteRenderer[initialPlatformCount];
-        for (int i = 0; i < initialPlatformCount; i++)
+        // Ensure there are platform prefabs
+        if (platformPrefabs.Length == 0)
         {
-            platforms[i] = Instantiate(platformPrefab, transform);
-            platforms[i].transform.position = Vector3.right * platformWidth * i;
+            Debug.LogError("Please assign platform prefabs in the platformPrefabs array.");
+            return;
         }
+
+        // Initialize the active platforms array
+        activePlatforms = new GameObject[2];
+
+        // Instantiate only the first platform at the start
+        activePlatforms[currentPlatformIndex] = Instantiate(platformPrefabs[Random.Range(0, platformPrefabs.Length)]);
+        activePlatforms[currentPlatformIndex].transform.position = Vector3.zero;  // Set initial position to zero
+
+        // Calculate the width of a platform based on the bounds of the first one
+        platformWidth = activePlatforms[currentPlatformIndex].GetComponent<SpriteRenderer>().bounds.size.x;
+
+        // Set the spawn buffer as a fraction of the platform width (e.g., half the width)
+        spawnBuffer = platformWidth * 0.5f;
     }
 
     void Update()
     {
-        // Check each platform and reposition it if the player has moved past its edge
-        for (int i = 0; i < platforms.Length; i++)
+        // Reference to the current platform
+        GameObject currentPlatform = activePlatforms[currentPlatformIndex];
+
+        // Check if the player is approaching the edge of the current platform (with buffer)
+        if (player.position.x > currentPlatform.transform.position.x + platformWidth - spawnBuffer)
         {
-            float rightEdgePosition = platforms[i].transform.position.x + platformWidth;
+            // Get the next platform index
+            int nextPlatformIndex = (currentPlatformIndex + 1) % activePlatforms.Length;
 
-            // If the player has moved past the right edge of the platform
-            if (player.position.x > rightEdgePosition)
+            // Destroy the old platform, then instantiate and position a new one to the right of the current platform
+            if (activePlatforms[nextPlatformIndex] != null)
             {
-                // Find the rightmost platform
-                SpriteRenderer rightmostPlatform = FindRightmostPlatform();
-
-                // Move the current platform to the right of the rightmost platform
-                platforms[i].transform.position = rightmostPlatform.transform.position + Vector3.right * platformWidth;
+                Destroy(activePlatforms[nextPlatformIndex]);
             }
+            activePlatforms[nextPlatformIndex] = Instantiate(platformPrefabs[Random.Range(0, platformPrefabs.Length)]);
+            activePlatforms[nextPlatformIndex].transform.position = currentPlatform.transform.position + Vector3.right * platformWidth;
+
+            // Update the platform index
+            currentPlatformIndex = nextPlatformIndex;
+        }
+        else if (player.position.x < currentPlatform.transform.position.x - platformWidth + spawnBuffer)
+        {
+            // Get the next platform index
+            int nextPlatformIndex = (currentPlatformIndex + 1) % activePlatforms.Length;
+
+            // Destroy the old platform, then instantiate and position a new one to the left of the current platform
+            if (activePlatforms[nextPlatformIndex] != null)
+            {
+                Destroy(activePlatforms[nextPlatformIndex]);
+            }
+            activePlatforms[nextPlatformIndex] = Instantiate(platformPrefabs[Random.Range(0, platformPrefabs.Length)]);
+            activePlatforms[nextPlatformIndex].transform.position = currentPlatform.transform.position - Vector3.right * platformWidth;
+
+            // Update the platform index
+            currentPlatformIndex = nextPlatformIndex;
         }
     }
 
-    SpriteRenderer FindRightmostPlatform()
-    {
-        SpriteRenderer rightmost = platforms[0];
-        for (int i = 1; i < platforms.Length; i++)
-        {
-            if (platforms[i].transform.position.x > rightmost.transform.position.x)
-            {
-                rightmost = platforms[i];
-            }
-        }
-        return rightmost;
-    }
 }
+
+//original script
 //public class InfiniteBackground : MonoBehaviour
 //{
 //    public Transform player;              // Reference to the player
