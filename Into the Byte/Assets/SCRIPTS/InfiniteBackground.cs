@@ -9,7 +9,7 @@ public class InfiniteBackground : MonoBehaviour
     public GameObject[] backgroundPrefabs;          // Array of background prefabs
     private GameObject[] activePlatforms;           // Array to hold active platform instances
     private GameObject[] activeBackgrounds;         // Array to hold active background instances
-    [Header("Distance Calculator")]
+   [Header("Distance Calculation")]
     private float platformWidth;                    // Width of each platform
     private float backgroundWidth;                  // Width of each background
     private int currentPlatformIndex = 0;           // Index of the current platform
