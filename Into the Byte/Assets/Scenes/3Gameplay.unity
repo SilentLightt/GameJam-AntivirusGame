@@ -168,12 +168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1078224497}
-  platforms:
-  - {fileID: 7918787573844805762, guid: 26fa32eda3fbf40468bf73d96b20a520, type: 3}
-  - {fileID: 756597089774246472, guid: b6d50bf312e4b964d96f0c41bfa0a169, type: 3}
-  backgroundObjects:
-  - {fileID: 2081006518534163574, guid: cc60f99a126879440a531788903bdc2a, type: 3}
-  - {fileID: 5339981216698003356, guid: dbb73c107395c2b4ab4ebb7c91d8000b, type: 3}
+  platformPrefab: {fileID: 0}
+  initialPlatformCount: 3
 --- !u!1 &498633742
 GameObject:
   m_ObjectHideFlags: 0
