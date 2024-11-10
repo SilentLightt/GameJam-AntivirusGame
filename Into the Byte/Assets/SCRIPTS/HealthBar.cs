@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class HealthBar : MonoBehaviour
 {
     public static HealthBar instance;
@@ -14,8 +15,22 @@ public class HealthBar : MonoBehaviour
     private float lerpSpeed = 0.05f;
     private Rigidbody2D rbplayer;
 
-    public GameObject GameOverCanvas;
+   // public GameObject GameOverCanvas;
     public GameObject Player;
+
+    void Awake()
+    {
+        // Singleton setup
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
         HP = maxHP;
@@ -23,26 +38,20 @@ public class HealthBar : MonoBehaviour
         healthSlider.value = HP;
         easeHealthSlider.maxValue = maxHP;
         easeHealthSlider.value = HP;
-        Rigidbody rbplayer = GetComponent<Rigidbody>();
+
+        // Initialize Rigidbody2D component for the player
+        rbplayer = Player.GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //if (healthSlider.value != HP)
-        //{
-        //    healthSlider.value = HP;
-        //}
-        //if (Input.GetKeyUp(KeyCode.K))
-        //{
-        //    PlayerTakeDamage(10);
-        //}
-        if (healthSlider.value != easeHealthSlider.value)
+        // Smoothly interpolate easeHealthSlider value towards HP
+        if (easeHealthSlider.value != HP)
         {
             easeHealthSlider.value = Mathf.Lerp(easeHealthSlider.value, HP, lerpSpeed);
         }
     }
- 
+
     public void PlayerTakeDamage(float damage)
     {
         HP -= damage;
@@ -53,12 +62,22 @@ public class HealthBar : MonoBehaviour
         }
         healthSlider.value = HP;
     }
+
     void Die()
     {
         Debug.Log("Player died!");
-        GameOverCanvas.SetActive(true);
-        Player.SetActive(false);
-        // rbplayer.isKinematic = true;
 
+        // Activate Game Over Canvas and disable player
+        //if (GameOverCanvas != null)
+        //{
+        //    GameOverCanvas.SetActive(true);
+        //}
+
+        if (Player != null)
+        {
+            Player.SetActive(false);
+            Time.timeScale = 0f;
+        }
     }
 }
+
