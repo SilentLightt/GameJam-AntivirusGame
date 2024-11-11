@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7443689190953782461}
   m_Layer: 0
   m_Name: Trojan
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,6 +144,7 @@ MonoBehaviour:
   enemyStats: {fileID: 11400000, guid: 9c56c568cc0bd1f4cab4c94a5d6757f9, type: 2}
   healthSlider: {fileID: 9066697504469765797}
   easeHealthSlider: {fileID: 128265351470771664}
+  enemyCanvas: {fileID: 0}
 --- !u!70 &7443689190953782461
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
