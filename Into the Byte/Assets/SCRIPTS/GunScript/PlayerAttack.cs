@@ -69,7 +69,7 @@ public class PlayerAttack : MonoBehaviour
 
         // Reduce ammo count after firing
         currentAmmo--;
-        Debug.Log("Ammo left: " + currentAmmo);
+       // Debug.Log("Ammo left: " + currentAmmo);
         UpdateAmmoUI(); // Update the ammo UI after firing
     }
 
@@ -92,12 +92,12 @@ public class PlayerAttack : MonoBehaviour
                 currentAmmo += reserveAmmo; // Refill as much as possible with reserve ammo
                 reserveAmmo = 0;            // Deplete reserve ammo
             }
-            Debug.Log("Ammo reloaded. Current ammo: " + currentAmmo + ", Reserve ammo: " + reserveAmmo);
+           // Debug.Log("Ammo reloaded. Current ammo: " + currentAmmo + ", Reserve ammo: " + reserveAmmo);
             UpdateAmmoUI(); // Update the ammo UI after reloading
         }
         else
         {
-            Debug.Log("No reserve ammo to reload!");
+          //  Debug.Log("No reserve ammo to reload!");
         }
     }
 

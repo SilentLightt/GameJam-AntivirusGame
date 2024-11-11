@@ -50,6 +50,14 @@ public class HealthBar : MonoBehaviour
         {
             easeHealthSlider.value = Mathf.Lerp(easeHealthSlider.value, HP, lerpSpeed);
         }
+        //if (Mathf.Abs(easeHealthSlider.value - HP) > 0.1f) // Change 0.1f to a suitable tolerance
+        //{
+        //    easeHealthSlider.value = Mathf.Lerp(easeHealthSlider.value, HP, lerpSpeed);
+        //}
+        //else
+        //{
+        //    easeHealthSlider.value = HP; // Directly set the value when it's close enough
+        //}
     }
 
     public void PlayerTakeDamage(float damage)
