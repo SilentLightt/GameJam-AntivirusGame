@@ -11,4 +11,5 @@ public class EnemyStats : ScriptableObject
     public float attackCooldown = 1.5f;   // Time interval between attacks
     public float attackDamage = 10f;      // Damage dealt to the player on attack
     public float health = 100f;
+
 }
