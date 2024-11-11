@@ -6,7 +6,7 @@ public class EnemyBehavior : MonoBehaviour
     private Transform player;                    // Reference to the player
     private float currentHealth;                 // Current health of the enemy
     private float lastAttackTime = 0f;           // Timer to track the time of the last attack
-
+    private EnemyHealth enemyHealth;
     void Start()
     {
         // Automatically find the player if not set in the Inspector
@@ -21,6 +21,7 @@ public class EnemyBehavior : MonoBehaviour
         }
 
         // Initialize enemy health from the ScriptableObject
+        enemyHealth = GetComponent<EnemyHealth>();  // Get the EnemyHealth component
         if (enemyStats != null)
         {
             currentHealth = enemyStats.health;
@@ -84,16 +85,20 @@ public class EnemyBehavior : MonoBehaviour
     }
 
     // Method to take damage
-    public void TakeDamage(float damage)
-    {
-        currentHealth -= damage;
-        Debug.Log("Enemy took " + damage + " damage. Current health: " + currentHealth);
+    //public void TakeDamage(float damage)
+    //{
+    //    //if (enemyHealth != null)
+    //    //{
+    //    //    enemyHealth.TakeDamage(damage);  // Delegate the damage handling to EnemyHealth
+    //    //}
+    //    //currentHealth -= damage;
+    //    //Debug.Log("Enemy took " + damage + " damage. Current health: " + currentHealth);
 
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
-    }
+    //    //if (currentHealth <= 0)
+    //    //{
+    //    //    Die();
+    //    //}
+    //}
 
     void Die()
     {
