@@ -7,6 +7,8 @@ public class EnemyBehavior : MonoBehaviour
     private float currentHealth;                 // Current health of the enemy
     private float lastAttackTime = 0f;           // Timer to track the time of the last attack
     private EnemyHealth enemyHealth;
+    public EnemyAnimations enemyAnimations;     // Reference to EnemyAnimations for controlling animations
+
     void Start()
     {
         // Automatically find the player if not set in the Inspector
@@ -25,6 +27,19 @@ public class EnemyBehavior : MonoBehaviour
         if (enemyStats != null)
         {
             currentHealth = enemyStats.health;
+        }
+
+        enemyAnimations = GetComponent<EnemyAnimations>();
+
+        // If not found on the parent, look for it in children
+        if (enemyAnimations == null)
+        {
+            enemyAnimations = GetComponentInChildren<EnemyAnimations>();
+        }
+
+        if (enemyAnimations == null)
+        {
+            Debug.LogError("EnemyAnimations component not found on parent or children! Please attach the EnemyAnimations script.");
         }
     }
 
@@ -53,7 +68,10 @@ public class EnemyBehavior : MonoBehaviour
         Vector3 direction = (player.position - transform.position).normalized;
         transform.position += direction * enemyStats.moveSpeed * Time.deltaTime;
 
-        // Optionally, flip the enemy to face the player (for 2D sprites)
+        // Play walk animation
+        enemyAnimations.PlayWalkAnimation();
+
+        // Flip the enemy to face the player
         if (direction.x > 0 && transform.localScale.x < 0)
         {
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
@@ -71,40 +89,48 @@ public class EnemyBehavior : MonoBehaviour
         {
             lastAttackTime = Time.time;
 
-            // Deal damage to the player using the HealthBar instance
+            // Play attack animation
+            enemyAnimations.PlayAttackAnimation();
+
+            // Deal damage to the player
             if (HealthBar.instance != null)
             {
                 HealthBar.instance.PlayerTakeDamage(enemyStats.attackDamage);
                 Debug.Log("Enemy attacks the player for " + enemyStats.attackDamage + " damage!");
             }
-            else
-            {
-                Debug.LogWarning("HealthBar instance is not set. Make sure HealthBar script is attached to an active GameObject.");
-            }
         }
     }
 
-    // Method to take damage
-    //public void TakeDamage(float damage)
-    //{
-    //    //if (enemyHealth != null)
-    //    //{
-    //    //    enemyHealth.TakeDamage(damage);  // Delegate the damage handling to EnemyHealth
-    //    //}
-    //    //currentHealth -= damage;
-    //    //Debug.Log("Enemy took " + damage + " damage. Current health: " + currentHealth);
+    void TakeDamage()
+    {
+        // Play take damage animation
+        enemyAnimations.PlayTakeDamageAnimation();
 
-    //    //if (currentHealth <= 0)
-    //    //{
-    //    //    Die();
-    //    //}
-    //}
+        // Reduce health
+        currentHealth -= enemyStats.attackDamage;
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
 
     void Die()
     {
-        // Perform any death-related actions here (e.g., play an animation, drop loot)
+        // Play death animation
+        enemyAnimations.PlayDeathAnimation();
+
+        // Perform any death-related actions here (e.g., drop loot)
         Debug.Log("Enemy died.");
         Destroy(gameObject);
+    }
+
+    public void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, enemyStats.followDistance);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, enemyStats.attackDistance);
     }
 }
 

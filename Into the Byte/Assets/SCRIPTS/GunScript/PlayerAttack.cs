@@ -38,10 +38,10 @@ public class PlayerAttack : MonoBehaviour
 
     void FireProjectile()
     {
-        // Calculate the direction to shoot towards (for example, using the mouse position)
+        // Get the direction from the fire point to the mouse position (or your desired direction)
         Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.position).normalized;
 
-        // Instantiate the projectile at the fire point position
+        // Instantiate the projectile at the fire point position (ensure it's updated with the player's movement)
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
 
         // Set the direction of the projectile
@@ -56,7 +56,17 @@ public class PlayerAttack : MonoBehaviour
         currentAmmo--;
         UpdateAmmoUI(); // Update the ammo UI after firing
     }
+    void RotateFirePoint()
+    {
+        // Get the direction from the fire point to the mouse position
+        Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.position).normalized;
 
+        // Calculate the angle to rotate
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        // Apply the rotation to the firePoint
+        firePoint.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+    }
     void ReloadAmmo()
     {
         // Check if there's enough reserve ammo to refill max ammo
