@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219174e96e90cec42bd7c2cd4822b81a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyStats: {fileID: 11400000, guid: 7129c8afb281e794c8d02a9daa4745f5, type: 2}
+  enemyStats: {fileID: 11400000, guid: 2ba66b9ccd64e5146a7c99a2733c70c7, type: 2}
   enemyAnimations: {fileID: 0}
 --- !u!114 &2233677472382434725
 MonoBehaviour:
