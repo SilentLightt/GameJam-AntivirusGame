@@ -27,7 +27,7 @@ public class InfiniteBackground : MonoBehaviour
         // Ensure there are platform and background prefabs
         if (platformPrefabs.Length == 0 || backgroundPrefabs.Length == 0)
         {
-            Debug.LogError("Please assign both platform and background prefabs.");
+         //   Debug.LogError("Please assign both platform and background prefabs.");
             return;
         }
 

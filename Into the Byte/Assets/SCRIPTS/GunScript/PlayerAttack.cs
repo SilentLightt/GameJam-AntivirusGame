@@ -1,110 +1,153 @@
-using TMPro;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public GameObject projectilePrefab;    // Reference to the projectile prefab
-    public Transform firePoint;            // Point from where the projectile will be fired
+    public GameObject projectilePrefab;  // Projectile to shoot
+    public Transform firePoint;          // Firing position
 
-    public int maxAmmo = 10;              // Maximum ammo the player can have at a time
-    public int currentAmmo;               // Current ammo count the player has
-    public int reserveAmmo = 100;         // Total reserve ammo available
-
-    // Reference to the TextMeshPro UI elements
-    public TextMeshProUGUI currentAmmoText;  // Reference to display current ammo
-    public TextMeshProUGUI reserveAmmoText;  // Reference to display reserve ammo
+    private PlayerItem playerItem;       // Reference to PlayerItem for managing ammo
 
     void Start()
     {
-        // Initialize the current ammo to the max ammo at the start
-        currentAmmo = maxAmmo;
-        UpdateAmmoUI(); // Update UI at the start
+        playerItem = GetComponent<PlayerItem>();
     }
 
     void Update()
     {
-        // Check for attack input (e.g., spacebar or mouse click) and ensure the player has ammo
-        if (Input.GetButtonDown("Fire1") && currentAmmo > 0)
+        // Check for firing input and if there is enough ammo to shoot
+        if (Input.GetButtonDown("Fire1") && playerItem != null && playerItem.HasAmmo())
         {
             FireProjectile();
+            playerItem.ConsumeAmmo();
         }
 
-        // Example of reloading (can be adjusted to your game logic)
-        if (Input.GetKeyDown(KeyCode.R)) // Press R to reload
+        // Check for reload input (e.g., pressing "R" key)
+        if (Input.GetKeyDown(KeyCode.R) && playerItem != null)
         {
-            ReloadAmmo();
+            playerItem.Reload();
         }
     }
 
+    // Instantiates and shoots the projectile
     void FireProjectile()
     {
-        // Get the direction from the fire point to the mouse position (or your desired direction)
-        Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.position).normalized;
-
-        // Instantiate the projectile at the fire point position (ensure it's updated with the player's movement)
-        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-
-        // Set the direction of the projectile
+        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         PlayerProjectile projectileScript = projectile.GetComponent<PlayerProjectile>();
+
         if (projectileScript != null)
         {
-            // Set the direction based on the mouse position or input
-            projectileScript.direction = direction;
-        }
-
-        // Reduce ammo count after firing
-        currentAmmo--;
-        UpdateAmmoUI(); // Update the ammo UI after firing
-    }
-    void RotateFirePoint()
-    {
-        // Get the direction from the fire point to the mouse position
-        Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.position).normalized;
-
-        // Calculate the angle to rotate
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        // Apply the rotation to the firePoint
-        firePoint.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-    }
-    void ReloadAmmo()
-    {
-        // Check if there's enough reserve ammo to refill max ammo
-        if (reserveAmmo > 0)
-        {
-            // Calculate how much ammo is needed to reload max ammo
-            int ammoNeeded = maxAmmo - currentAmmo;
-
-            // If there's enough reserve ammo to completely refill max ammo
-            if (reserveAmmo >= ammoNeeded)
-            {
-                reserveAmmo -= ammoNeeded;  // Decrease reserve ammo
-                currentAmmo = maxAmmo;      // Refill max ammo
-            }
-            else
-            {
-                currentAmmo += reserveAmmo; // Refill as much as possible with reserve ammo
-                reserveAmmo = 0;            // Deplete reserve ammo
-            }
-
-            UpdateAmmoUI(); // Update the ammo UI after reloading
-        }
-    }
-
-    // Update the ammo UI (text fields) based on the current ammo and reserve ammo
-    void UpdateAmmoUI()
-    {
-        if (currentAmmoText != null)
-        {
-            currentAmmoText.text = "Ammo: " + currentAmmo.ToString(); // Update current ammo display
-        }
-
-        if (reserveAmmoText != null)
-        {
-            reserveAmmoText.text = "Reserve: " + reserveAmmo.ToString(); // Update reserve ammo display
+            // Assign direction, assuming player orientation can be added here
+            projectileScript.direction = Vector2.right; // Change this to match player facing if needed
         }
     }
 }
+
+
+//public class PlayerAttack : MonoBehaviour
+//{
+//    public GameObject projectilePrefab;    // Reference to the projectile prefab
+//    public Transform firePoint;            // Point from where the projectile will be fired
+
+//    public int maxAmmo = 10;              // Maximum ammo the player can have at a time
+//    public int currentAmmo;               // Current ammo count the player has
+//    public int reserveAmmo = 100;         // Total reserve ammo available
+
+//    // Reference to the TextMeshPro UI elements
+//    public TextMeshProUGUI currentAmmoText;  // Reference to display current ammo
+//    public TextMeshProUGUI reserveAmmoText;  // Reference to display reserve ammo
+
+//    void Start()
+//    {
+//        // Initialize the current ammo to the max ammo at the start
+//        currentAmmo = maxAmmo;
+//        UpdateAmmoUI(); // Update UI at the start
+//    }
+
+//    void Update()
+//    {
+//        // Check for attack input (e.g., spacebar or mouse click) and ensure the player has ammo
+//        if (Input.GetButtonDown("Fire1") && currentAmmo > 0)
+//        {
+//            FireProjectile();
+//        }
+
+//        // Example of reloading (can be adjusted to your game logic)
+//        if (Input.GetKeyDown(KeyCode.R)) // Press R to reload
+//        {
+//            ReloadAmmo();
+//        }
+//        RotateFirePoint();
+//    }
+
+//    void FireProjectile()
+//    {
+//        // Get the direction from the fire point to the mouse position (or your desired direction)
+//        Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.position).normalized;
+
+//        // Instantiate the projectile at the fire point position (ensure it's updated with the player's movement)
+//        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+
+//        // Set the direction of the projectile
+//        PlayerProjectile projectileScript = projectile.GetComponent<PlayerProjectile>();
+//        if (projectileScript != null)
+//        {
+//            // Set the direction based on the mouse position or input
+//            projectileScript.direction = direction;
+//        }
+
+//        // Reduce ammo count after firing
+//        currentAmmo--;
+//        UpdateAmmoUI(); // Update the ammo UI after firing
+//    }
+//    void RotateFirePoint()
+//    {
+//        // Get the direction from the fire point to the mouse position
+//        Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.position).normalized;
+
+//        // Calculate the angle to rotate
+//        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+//        // Apply the rotation to the firePoint
+//        firePoint.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+//    }
+//    void ReloadAmmo()
+//    {
+//        // Check if there's enough reserve ammo to refill max ammo
+//        if (reserveAmmo > 0)
+//        {
+//            // Calculate how much ammo is needed to reload max ammo
+//            int ammoNeeded = maxAmmo - currentAmmo;
+
+//            // If there's enough reserve ammo to completely refill max ammo
+//            if (reserveAmmo >= ammoNeeded)
+//            {
+//                reserveAmmo -= ammoNeeded;  // Decrease reserve ammo
+//                currentAmmo = maxAmmo;      // Refill max ammo
+//            }
+//            else
+//            {
+//                currentAmmo += reserveAmmo; // Refill as much as possible with reserve ammo
+//                reserveAmmo = 0;            // Deplete reserve ammo
+//            }
+
+//            UpdateAmmoUI(); // Update the ammo UI after reloading
+//        }
+//    }
+
+//    // Update the ammo UI (text fields) based on the current ammo and reserve ammo
+//    void UpdateAmmoUI()
+//    {
+//        if (currentAmmoText != null)
+//        {
+//            currentAmmoText.text = "Ammo: " + currentAmmo.ToString(); // Update current ammo display
+//        }
+
+//        if (reserveAmmoText != null)
+//        {
+//            reserveAmmoText.text = "Reserve: " + reserveAmmo.ToString(); // Update reserve ammo display
+//        }
+//    }
+//}
 
 
 //working with reload and limited bullets

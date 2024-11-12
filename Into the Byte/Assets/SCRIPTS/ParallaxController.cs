@@ -67,7 +67,7 @@ public class ParallaxController : MonoBehaviour
         // Check if the player is approaching the right edge of the current platform (with buffer)
         if (player.position.x > currentPlatform.transform.position.x + platformWidth - spawnBuffer)
         {
-            Debug.Log("Player approaching the right edge of the platform. Spawning new platform.");
+            //Debug.Log("Player approaching the right edge of the platform. Spawning new platform.");
 
             int nextPlatformIndex = (currentPlatformIndex + 1) % activePlatforms.Length;
             if (activePlatforms[nextPlatformIndex] != null)
@@ -81,7 +81,7 @@ public class ParallaxController : MonoBehaviour
         // Check if the player is approaching the left edge of the current platform (with buffer)
         else if (player.position.x < currentPlatform.transform.position.x - platformWidth + spawnBuffer)
         {
-            Debug.Log("Player approaching the left edge of the platform. Spawning new platform.");
+           // Debug.Log("Player approaching the left edge of the platform. Spawning new platform.");
 
             int nextPlatformIndex = (currentPlatformIndex + 1) % activePlatforms.Length;
             if (activePlatforms[nextPlatformIndex] != null)
