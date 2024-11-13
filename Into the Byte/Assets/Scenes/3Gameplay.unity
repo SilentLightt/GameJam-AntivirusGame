@@ -520,12 +520,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1078224497}
   platformPrefabs:
-  - {fileID: 3142567005245448385, guid: 26fa32eda3fbf40468bf73d96b20a520, type: 3}
+  - {fileID: 5357801849874364172, guid: 8772541d236df51499133d818884291d, type: 3}
   backgroundPrefabs:
-  - {fileID: 1128988768242780735, guid: cc60f99a126879440a531788903bdc2a, type: 3}
-  - {fileID: 2824187282500174153, guid: dbb73c107395c2b4ab4ebb7c91d8000b, type: 3}
   - {fileID: 3368512979232603534, guid: 3d3e82a278fce6144ad3308f3c99af5b, type: 3}
-  spawnBuffer: 18
+  spawnBuffer: 0
   backgroundHeightOffset: 4.5
   maxHeight: 4.5
 --- !u!114 &412934975
@@ -873,11 +871,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1078224497}
   platformPrefabs:
-  - {fileID: 3142567005245448385, guid: 26fa32eda3fbf40468bf73d96b20a520, type: 3}
+  - {fileID: 5357801849874364172, guid: 8772541d236df51499133d818884291d, type: 3}
   backgroundPrefabs:
-  - {fileID: 2179385706139189165, guid: e36be2ff70c40bf4f8a2941f0808d9c3, type: 3}
+  - {fileID: 3741195452276365015, guid: 2c29791089df50c4bba56641e7517990, type: 3}
   platformWidth: 0
-  spawnBuffer: 18
+  spawnBuffer: 1
   backgroundHeightOffset: 4
   maxHeight: 4
 --- !u!1 &546172494
