@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Worm
   m_EditorClassIdentifier: 
   followDistance: 10
-  attackDistance: 2
+  attackDistance: 5
   moveSpeed: 3
   attackCooldown: 1.5
   attackDamage: 5
