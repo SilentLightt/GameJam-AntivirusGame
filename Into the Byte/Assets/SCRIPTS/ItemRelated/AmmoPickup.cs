@@ -1,17 +1,26 @@
 using UnityEngine;
-public class AmmoPickup : PickupItem
-{
-    public int ammoAmount;
 
-    public override void ApplyEffect(PlayerItem playerItem)
+public class AmmoPickup : AutoPickup
+{
+    public int ammoAmount = 10; // Amount of ammo to give
+
+    protected override void PerformPickup()
     {
-        if (playerItem != null)
+        // Implement ammo pickup logic
+        Debug.Log("Player picked up ammo!");
+
+        // Add ammo to the player (replace this with your actual ammo management logic)
+        AmmoManager ammoManager = FindObjectOfType<AmmoManager>();
+        if (ammoManager != null)
         {
-            playerItem.AddAmmo(ammoAmount);
-            Debug.Log($"Picked up {ammoAmount} ammo!"); // Optional: log in the console
+            ammoManager.reserveAmmo += ammoAmount;
+            ammoManager.UpdateAmmoUI();
         }
+
+        Destroy(gameObject); // Destroy the pickup item
     }
 }
+
 //public class AmmoPickup : PickupItem
 //{
 //    public int ammoAmount = 10; // The amount of ammo this pickup provides

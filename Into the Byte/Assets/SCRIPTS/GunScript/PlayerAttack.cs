@@ -2,45 +2,60 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public GameObject projectilePrefab;  // Projectile to shoot
-    public Transform firePoint;          // Firing position
+    public GameObject projectilePrefab;    // Reference to the projectile prefab
+    public Transform firePoint;            // Point from where the projectile will be fired
 
-    private PlayerItem playerItem;       // Reference to PlayerItem for managing ammo
-
-    void Start()
-    {
-        playerItem = GetComponent<PlayerItem>();
-    }
+    public AmmoManager ammoManager;        // Reference to the AmmoManager script
 
     void Update()
     {
-        // Check for firing input and if there is enough ammo to shoot
-        if (Input.GetButtonDown("Fire1") && playerItem != null && playerItem.HasAmmo())
+        // Check for attack input (e.g., spacebar or mouse click)
+        if (Input.GetButtonDown("Fire1"))
         {
             FireProjectile();
-            playerItem.ConsumeAmmo();
         }
 
-        // Check for reload input (e.g., pressing "R" key)
-        if (Input.GetKeyDown(KeyCode.R) && playerItem != null)
+        // Example of reloading (can be adjusted to your game logic)
+        if (Input.GetKeyDown(KeyCode.R)) // Press R to reload
         {
-            playerItem.Reload();
+            ammoManager.ReloadAmmo();
         }
+
+        RotateFirePoint();
     }
 
-    // Instantiates and shoots the projectile
     void FireProjectile()
     {
-        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
-        PlayerProjectile projectileScript = projectile.GetComponent<PlayerProjectile>();
-
-        if (projectileScript != null)
+        if (ammoManager.TryFireAmmo())
         {
-            // Assign direction, assuming player orientation can be added here
-            projectileScript.direction = Vector2.right; // Change this to match player facing if needed
+            // Get the direction from the fire point to the mouse position
+            Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.position).normalized;
+
+            // Instantiate the projectile
+            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+
+            // Set the direction of the projectile
+            PlayerProjectile projectileScript = projectile.GetComponent<PlayerProjectile>();
+            if (projectileScript != null)
+            {
+                projectileScript.direction = direction;
+            }
         }
     }
+
+    void RotateFirePoint()
+    {
+        // Get the direction from the fire point to the mouse position
+        Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.position).normalized;
+
+        // Calculate the angle to rotate
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        // Apply the rotation to the firePoint
+        firePoint.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+    }
 }
+
 
 
 //public class PlayerAttack : MonoBehaviour

@@ -70,6 +70,15 @@ public class HealthBar : MonoBehaviour
         }
         healthSlider.value = HP;
     }
+    public void AddHealth(float healthAmount)
+    {
+        HP += healthAmount;
+        if (HP > maxHP)
+        {
+            HP = maxHP;
+        }
+        healthSlider.value = HP;
+    }
 
     void Die()
     {
