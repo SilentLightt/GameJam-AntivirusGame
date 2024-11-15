@@ -2866,7 +2866,7 @@ GameObject:
   - component: {fileID: 1454911576}
   - component: {fileID: 1454911575}
   m_Layer: 0
-  m_Name: Worm Idle_0
+  m_Name: Worm
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3542,7 +3542,7 @@ GameObject:
   - component: {fileID: 1719537855}
   - component: {fileID: 1719537854}
   m_Layer: 0
-  m_Name: Worm Puke Floor_0
+  m_Name: Worm_Puke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
