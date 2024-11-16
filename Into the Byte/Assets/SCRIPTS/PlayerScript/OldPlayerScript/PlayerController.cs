@@ -18,12 +18,20 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundMask;
     public PlayerAttackBase playerAttackBase;
     private PlayerAttackBase.WeaponType currentWeaponType;
-    public GameObject[] Weapon;
+    public GameObject meleeWeapon; // Reference to the melee weapon GameObject
+    public GameObject rangedWeapon; // Reference to the ranged weapon GameObject
 
     public void Start()
     {
        // anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        if (playerAttackBase == null)
+        {
+            playerAttackBase = GetComponent<PlayerAttackBase>();
+        }
+
+        // Ensure only the currently active weapon is visible at the start
+        UpdateWeaponVisibility();
     }
 
     public void Update()
@@ -62,10 +70,24 @@ public class PlayerController : MonoBehaviour
 
         // Use the instance to update the weapon type
         playerAttackBase.currentWeaponType = newWeaponType;
+        UpdateWeaponVisibility();
 
         canAttack = true;
     }
-
+    void UpdateWeaponVisibility()
+    {
+        // Enable/disable weapons based on the current weapon type
+        if (playerAttackBase.currentWeaponType == PlayerAttackBase.WeaponType.Melee)
+        {
+            meleeWeapon.SetActive(true);
+            rangedWeapon.SetActive(false);
+        }
+        else if (playerAttackBase.currentWeaponType == PlayerAttackBase.WeaponType.Ranged)
+        {
+            meleeWeapon.SetActive(false);
+            rangedWeapon.SetActive(true);
+        }
+    }
     public bool CanAttack()
     {
         return canAttack;

@@ -703,8 +703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 5480089049570182041, guid: 8962447acedb05543a457c2735641d18, type: 3}
-  - {fileID: 2159176840651007997, guid: 48c05d0a20b70954ea56b6a57d4f6d9e, type: 3}
+  - {fileID: 2398540451185566255, guid: 2d4d9a540a3da5a4baeeab263be1bc84, type: 3}
   infiniteBackground: {fileID: 412934974}
   spawnOffsetY: 1
   spawnInterval: 2
