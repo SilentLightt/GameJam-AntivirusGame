@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 2109470869315796701}
   - component: {fileID: 123729949832486862}
   - component: {fileID: 8429329860001942092}
-  - component: {fileID: 6707328503758187071}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BodyVirus
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -121,41 +120,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!70 &6707328503758187071
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1307086695493595536}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0022901236, y: -0.048099678}
-  m_Size: {x: 0.6747566, y: 0.6747566}
-  m_Direction: 1
 --- !u!1 &1870347975186101962
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +461,7 @@ GameObject:
   - component: {fileID: 5864994197161786807}
   - component: {fileID: 86049169016142153}
   - component: {fileID: 2077695360569213252}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VirusRanger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -623,7 +587,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 10
+  m_GravityScale: -1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -631,7 +595,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4

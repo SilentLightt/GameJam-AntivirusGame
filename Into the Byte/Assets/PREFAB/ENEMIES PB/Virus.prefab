@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6738472268720103339}
   - component: {fileID: 4281737841021348807}
-  - component: {fileID: 3024873782722874830}
   - component: {fileID: 4832707418306501724}
   - component: {fileID: 8585056207374880545}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Circle
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -87,41 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &3024873782722874830
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1947301966792243897}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0064510927, y: -0.022578316}
-  serializedVersion: 2
-  m_Radius: 0.39355853
 --- !u!95 &4832707418306501724
 Animator:
   serializedVersion: 5
@@ -170,7 +134,7 @@ GameObject:
   - component: {fileID: 2692586069614647487}
   - component: {fileID: -3737117921930683942}
   - component: {fileID: 2233677472382434725}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Virus
   m_TagString: Untagged
   m_Icon: {fileID: 0}

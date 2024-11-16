@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static PlayerAttackBase;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,11 +10,15 @@ public class PlayerController : MonoBehaviour
     public float jumpingPower = 5f;
     public Rigidbody2D rb;
     public bool isFacingRight;
+    private bool canAttack;             // A flag to control if attacking is allowed
 
 
-  //  private Animator anim;
+    //  private Animator anim;
     public bool isGrounded;
     public LayerMask groundMask;
+    public PlayerAttackBase playerAttackBase;
+    private PlayerAttackBase.WeaponType currentWeaponType;
+    public GameObject[] Weapon;
 
     public void Start()
     {
@@ -25,8 +30,46 @@ public class PlayerController : MonoBehaviour
     {
             CharacterMovement();
             Flip();
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            StartCoroutine(SwitchWeaponWithDelay(PlayerAttackBase.WeaponType.Melee));
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            StartCoroutine(SwitchWeaponWithDelay(PlayerAttackBase.WeaponType.Ranged));
+        }
+    }
+    //public void SwitchWeapon(PlayerAttackBase.WeaponType weaponType)
+    //{
+    //    if (playerAttackBase != null)
+    //    {
+    //        playerAttackBase.currentWeaponType = weaponType;
+    //        // Update UI or other components if needed
+    //    }
+    //    else
+    //    {
+    //        Debug.LogWarning("playerAttackBase reference is missing!");
+    //    }
+    //}
+    IEnumerator SwitchWeaponWithDelay(PlayerAttackBase.WeaponType newWeaponType)
+    {
+        canAttack = false;
+
+        // Optional: Trigger the weapon switch animation
+        // animator.SetTrigger("SwitchWeapon");
+
+        yield return new WaitForSeconds(0.2f);
+
+        // Use the instance to update the weapon type
+        playerAttackBase.currentWeaponType = newWeaponType;
+
+        canAttack = true;
     }
 
+    public bool CanAttack()
+    {
+        return canAttack;
+    }
     private void CharacterMovement()
     {
         horizontal = Input.GetAxisRaw("Horizontal");

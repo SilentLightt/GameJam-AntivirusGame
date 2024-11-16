@@ -22,7 +22,8 @@ public class PlayerAnimator : MonoBehaviour
 
     public void TriggerAttack()
     {
-        animator.SetTrigger("Attack");
+        animator.SetTrigger("RangeAttack");
+        animator.SetTrigger("MeleeAttack");
     }
 }
 
