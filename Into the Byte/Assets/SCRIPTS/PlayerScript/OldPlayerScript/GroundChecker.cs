@@ -7,7 +7,7 @@ public class GroundChecker : MonoBehaviour
 {
 
     public PlayerController controller;
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 3)
         {

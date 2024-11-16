@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 655414635150232334}
   - component: {fileID: 790152306755227401}
   - component: {fileID: 7443689190953782461}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trojan
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 9c56c568cc0bd1f4cab4c94a5d6757f9, type: 2}
+  enemyAnimations: {fileID: 0}
 --- !u!114 &790152306755227401
 MonoBehaviour:
   m_ObjectHideFlags: 0

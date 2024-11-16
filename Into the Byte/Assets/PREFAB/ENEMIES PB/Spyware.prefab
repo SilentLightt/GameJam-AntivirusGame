@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7821274138823966320}
   - component: {fileID: 3906768664128810238}
   - component: {fileID: 1463300005215763933}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spyware
   m_TagString: Enemy
   m_Icon: {fileID: 0}
