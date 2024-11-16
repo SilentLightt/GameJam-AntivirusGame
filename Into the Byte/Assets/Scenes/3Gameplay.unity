@@ -1828,6 +1828,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   playerAttackBase: {fileID: 0}
+  Weapon: []
 --- !u!50 &1078224500
 Rigidbody2D:
   serializedVersion: 4
@@ -4604,7 +4605,8 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
-  playerAttackBase: {fileID: 0}
+  playerAttackBase: {fileID: 1391254589}
+  Weapon: []
 --- !u!50 &1186485959751875058
 Rigidbody2D:
   serializedVersion: 4
