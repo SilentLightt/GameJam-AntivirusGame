@@ -9,7 +9,9 @@ public abstract class EnemyBase : MonoBehaviour
     protected float currentHealth;
     protected float lastAttackTime = 0f;
     protected EnemyAnimations enemyAnimations;  // Reference to the EnemyAnimations component
-
+    public event System.Action<float> OnHealthChanged; // Notify for UI updates
+    private float deathdelay =1f;
+    protected EnemyHealth enemyhp;
     protected virtual void Awake()
     {
         // Find the EnemyAnimations component in the same GameObject or in children
@@ -71,6 +73,8 @@ public abstract class EnemyBase : MonoBehaviour
 
         // Initialize health
         currentHealth = enemyStats.health;
+        OnHealthChanged?.Invoke(currentHealth); // Notify initial health
+        //enemyhp = GetComponent<EnemyHealth>();
     }
 
     protected virtual void Update()
@@ -89,6 +93,7 @@ public abstract class EnemyBase : MonoBehaviour
             Attack();
             lastAttackTime = Time.time;
         }
+        //enemyhp.UpdateHealthUI();
     }
 
     protected void FollowPlayer()
@@ -111,6 +116,7 @@ public abstract class EnemyBase : MonoBehaviour
     public virtual void TakeDamage(float amount)
     {
         currentHealth -= amount;
+        OnHealthChanged?.Invoke(currentHealth); // Notify UI
         PlayTakeDamageAnimation();
         if (currentHealth <= 0) Die();
     }
@@ -118,7 +124,8 @@ public abstract class EnemyBase : MonoBehaviour
     public virtual void Die()
     {
         Debug.Log("Enemy died.");
-        Destroy(gameObject);
+        PlayDeathAnimation();
+        Destroy(gameObject, deathdelay);
     }
     public void OnDrawGizmosSelected()
     {

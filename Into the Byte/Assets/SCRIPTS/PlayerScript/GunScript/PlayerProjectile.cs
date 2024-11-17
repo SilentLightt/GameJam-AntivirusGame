@@ -21,11 +21,11 @@ public class PlayerProjectile : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
+        EnemyBase enemyHealth = collision.gameObject.GetComponent<EnemyBase>();
         if (gameObject.CompareTag("Enemy") || enemyHealth != null)
         {
             // Call the TakeDamage method directly on the EnemyHealth component
-            enemyHealth.EnemyTakeDamage(damage);
+            enemyHealth.TakeDamage(damage);
             Debug.Log("Projectile hit enemy for " + damage + " damage.");
         }
         else

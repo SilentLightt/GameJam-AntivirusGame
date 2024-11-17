@@ -96,9 +96,9 @@ GameObject:
   - component: {fileID: 1030627565972099974}
   - component: {fileID: 8245994477191876403}
   - component: {fileID: 3338346632872514974}
+  - component: {fileID: 9189259615299962644}
   - component: {fileID: 4011886465594402071}
   - component: {fileID: 264829135721806204}
-  - component: {fileID: 9189259615299962644}
   - component: {fileID: 819689439619830778}
   m_Layer: 6
   m_Name: Worm
@@ -232,6 +232,33 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 4.314526, y: 1.7328434}
   m_Direction: 1
+--- !u!50 &9189259615299962644
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2516267291328447524}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 1
+  m_Mass: 6.8320036
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &4011886465594402071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,33 +287,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
---- !u!50 &9189259615299962644
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2516267291328447524}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
-  m_Mass: 6.8320036
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &819689439619830778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,10 +299,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223eb3beaa3916c43992e25b48e0b0cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyStats: {fileID: 11400000, guid: 9caf541cea4019d4eaebc1a2c23d5f7e, type: 2}
   healthSlider: {fileID: 966488529282056882}
   easeHealthSlider: {fileID: 8177826423170949575}
-  enemyCanvas: {fileID: 0}
 --- !u!1001 &2597617361945169717
 PrefabInstance:
   m_ObjectHideFlags: 0

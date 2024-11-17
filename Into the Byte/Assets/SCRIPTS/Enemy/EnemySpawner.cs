@@ -123,11 +123,11 @@ public class EnemySpawner : MonoBehaviour
         GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
         spawnedEnemies.Add(enemy);
 
-        EnemyBase enemyBase = enemy.GetComponent<EnemyBase>();
-        if (enemyBase != null)
-        {
-            enemyBase.Die(); // Subscribe to enemy death event
-        }
+        //EnemyBase enemyBase = enemy.GetComponent<EnemyBase>();
+        //if (enemyBase != null)
+        //{
+        //    enemyBase.Die(); // Subscribe to enemy death event
+        //}
 
         enemiesRemaining--;
     }

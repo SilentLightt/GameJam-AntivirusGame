@@ -106,10 +106,10 @@ public class PlayerMeleeAttack : PlayerAttackBase
         foreach (Collider2D enemy in hitEnemies)
         {
             // Assuming the enemy has a health system with a `TakeDamage` method
-            EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
+            EnemyBase enemyHealth = enemy.GetComponent<EnemyBase>();
             if (enemyHealth != null)
             {
-                enemyHealth.EnemyTakeDamage(Sworddamage);
+                enemyHealth.TakeDamage(Sworddamage);
                 Debug.Log("Melee attack hit enemy for " + Sworddamage + " damage.");
             }
         }

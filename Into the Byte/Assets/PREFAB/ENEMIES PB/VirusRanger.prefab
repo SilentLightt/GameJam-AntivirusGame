@@ -587,7 +587,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: -1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -611,10 +611,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223eb3beaa3916c43992e25b48e0b0cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyStats: {fileID: 11400000, guid: 7129c8afb281e794c8d02a9daa4745f5, type: 2}
   healthSlider: {fileID: 8443243345520888715}
   easeHealthSlider: {fileID: 6965863269326702007}
-  enemyCanvas: {fileID: 0}
 --- !u!114 &2077695360569213252
 MonoBehaviour:
   m_ObjectHideFlags: 0

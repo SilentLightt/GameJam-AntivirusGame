@@ -910,12 +910,15 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 852461422}
   enemies:
-  - {fileID: 2398540451185566255, guid: 2d4d9a540a3da5a4baeeab263be1bc84, type: 3}
+  - {fileID: 0}
   items:
   - {fileID: 4848930110873152174, guid: 6aec62219c0e56846b8a03787f26f06d, type: 3}
   - {fileID: 7740087871283979709, guid: 8712103836beafd4ba140ff7d4a43352, type: 3}
   maxWaves: 10
-  enemiesPerWave: 3
+  enemiesPerWave: 5
+  currentWave: 1
+  enemiesRemaining: 0
+  spawnedEnemies: []
   spawnInterval: 2
 --- !u!1 &498633742
 GameObject:
@@ -3756,9 +3759,10 @@ GameObject:
   - component: {fileID: 1391254586}
   - component: {fileID: 1391254588}
   - component: {fileID: 1391254589}
+  - component: {fileID: 1391254590}
   m_Layer: 0
   m_Name: Sword
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3851,6 +3855,51 @@ MonoBehaviour:
   animator: {fileID: 1186485959751875056}
   controller: {fileID: 0}
   attackCooldown: 0.2
+--- !u!61 &1391254590
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391254585}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.046984613, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8642565, y: 2}
+  m_EdgeRadius: 0
 --- !u!1 &1425210184
 GameObject:
   m_ObjectHideFlags: 0

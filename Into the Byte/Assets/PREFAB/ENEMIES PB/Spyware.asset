@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c530a6d9d099b4bab8a51e5060c471, type: 3}
   m_Name: Spyware
   m_EditorClassIdentifier: 
-  followDistance: 8
+  followDistance: 12
   attackDistance: 1.5
   moveSpeed: 4
   attackCooldown: 1.5
