@@ -12,11 +12,15 @@ public class MainMenuScript : MonoBehaviour
 
     public void settingsBtn()
     {
-
+        SceneManager.LoadSceneAsync(4);
     }
     
     public void quitBtn()
     {
 
+    }
+    public void backToMainMenu() 
+    {
+        SceneManager.LoadSceneAsync(0);
     }
 }
