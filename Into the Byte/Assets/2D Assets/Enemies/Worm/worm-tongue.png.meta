@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cdb083473214e994480d8ba101e82412
+guid: fd5c6ac79d19bf14a8777e632da1787a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: worm-tongue_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 15
+        width: 72
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: accb0a825c3faf54b8c9ea391a62b40e
+      internalID: -1758879951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worm-tongue_1
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 15
+        width: 120
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d5381dab1a0450478adfc9999786817
+      internalID: 2065588838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worm-tongue_2
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 0
+        width: 152
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0c3ce22ae60ce0499499d0bf8db2f79
+      internalID: 1072852020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +195,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      worm-tongue_0: -1758879951
+      worm-tongue_1: 2065588838
+      worm-tongue_2: 1072852020
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

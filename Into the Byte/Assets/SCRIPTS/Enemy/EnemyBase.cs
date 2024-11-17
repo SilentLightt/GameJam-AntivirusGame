@@ -8,7 +8,58 @@ public abstract class EnemyBase : MonoBehaviour
     protected Transform player;
     protected float currentHealth;
     protected float lastAttackTime = 0f;
+    protected EnemyAnimations enemyAnimations;  // Reference to the EnemyAnimations component
 
+    protected virtual void Awake()
+    {
+        // Find the EnemyAnimations component in the same GameObject or in children
+        enemyAnimations = GetComponentInChildren<EnemyAnimations>();
+
+        if (enemyAnimations == null)
+        {
+            Debug.LogWarning("EnemyAnimations component not found. Please assign an EnemyAnimations script to the enemy.");
+        }
+    }
+
+    protected void PlayIdleAnimation()
+    {
+        if (enemyAnimations != null)
+        {
+            enemyAnimations.PlayIdleAnimation();
+        }
+    }
+
+    protected void PlayWalkAnimation()
+    {
+        if (enemyAnimations != null)
+        {
+            enemyAnimations.PlayWalkAnimation();
+        }
+    }
+
+    protected void PlayAttackAnimation()
+    {
+        if (enemyAnimations != null)
+        {
+            enemyAnimations.PlayAttackAnimation();
+        }
+    }
+
+    protected void PlayTakeDamageAnimation()
+    {
+        if (enemyAnimations != null)
+        {
+            enemyAnimations.PlayTakeDamageAnimation();
+        }
+    }
+
+    protected void PlayDeathAnimation()
+    {
+        if (enemyAnimations != null)
+        {
+            enemyAnimations.PlayDeathAnimation();
+        }
+    }
     protected virtual void Start()
     {
         // Find the player automatically
@@ -60,6 +111,7 @@ public abstract class EnemyBase : MonoBehaviour
     public virtual void TakeDamage(float amount)
     {
         currentHealth -= amount;
+        PlayTakeDamageAnimation();
         if (currentHealth <= 0) Die();
     }
 

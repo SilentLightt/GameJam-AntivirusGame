@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followDistance: 10
   attackDistance: 5
-  moveSpeed: 3
-  attackCooldown: 1.5
+  moveSpeed: 1
+  attackCooldown: 5
   attackDamage: 5
   health: 100

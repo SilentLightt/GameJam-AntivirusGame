@@ -8,7 +8,14 @@ public class MeleeEnemyBehavior : EnemyBase
         {
             HealthBar.instance.PlayerTakeDamage(enemyStats.attackDamage);
             Debug.Log("Melee enemy attacks player for " + enemyStats.attackDamage + " damage.");
+            PlayAttackAnimation();
         }
     }
+    //public void TakeDamage()
+    //{
+    //    // Specific damage logic here
+    //    PlayTakeDamageAnimation();
+    //}
+
 }
 

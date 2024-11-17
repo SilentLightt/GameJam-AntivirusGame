@@ -587,7 +587,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: -1
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -595,7 +595,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -628,6 +628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 7129c8afb281e794c8d02a9daa4745f5, type: 2}
+  firingPoint: {fileID: 2940151924714442341}
   projectilePrefab: {fileID: 7630114150772060237, guid: 6af2f2b531741fa458049bba19a32645, type: 3}
 --- !u!1 &5957585045349099191
 GameObject:
