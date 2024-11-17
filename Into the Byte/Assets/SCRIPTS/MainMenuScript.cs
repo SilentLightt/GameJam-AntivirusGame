@@ -23,4 +23,8 @@ public class MainMenuScript : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(0);
     }
+    public void playMainGame()
+    {
+        SceneManager.LoadSceneAsync(2);
+    }
 }
