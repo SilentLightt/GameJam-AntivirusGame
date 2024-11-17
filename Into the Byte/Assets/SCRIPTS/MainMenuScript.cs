@@ -12,11 +12,19 @@ public class MainMenuScript : MonoBehaviour
 
     public void settingsBtn()
     {
-
+        SceneManager.LoadSceneAsync(4);
     }
     
     public void quitBtn()
     {
-
+        Application.Quit();
+    }
+    public void backToMainMenu() 
+    {
+        SceneManager.LoadSceneAsync(0);
+    }
+    public void playMainGame()
+    {
+        SceneManager.LoadSceneAsync(2);
     }
 }
