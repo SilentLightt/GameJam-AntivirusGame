@@ -115,7 +115,7 @@ public abstract class EnemyBase : MonoBehaviour
         if (currentHealth <= 0) Die();
     }
 
-    protected virtual void Die()
+    public virtual void Die()
     {
         Debug.Log("Enemy died.");
         Destroy(gameObject);
