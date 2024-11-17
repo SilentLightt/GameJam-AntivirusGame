@@ -17,7 +17,7 @@ public class MainMenuScript : MonoBehaviour
     
     public void quitBtn()
     {
-
+        Application.Quit();
     }
     public void backToMainMenu() 
     {
