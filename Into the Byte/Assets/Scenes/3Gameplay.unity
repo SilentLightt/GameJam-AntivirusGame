@@ -927,7 +927,7 @@ MonoBehaviour:
   - {fileID: 2159176840651007997, guid: 48c05d0a20b70954ea56b6a57d4f6d9e, type: 3}
   - {fileID: 2516267291328447524, guid: 2eae0ba423ec3b54a8f8ae48dea457e0, type: 3}
   infiniteBackground: {fileID: 412934974}
-  spawnOffsetY: 1
+  spawnOffsetY: 2
   spawnInterval: 2
   maxEnemies: 1
   activeEnemies: []
@@ -3178,6 +3178,7 @@ MonoBehaviour:
   attackPoint: {fileID: 1391254586}
   animator: {fileID: 1186485959751875056}
   controller: {fileID: 0}
+  attackCooldown: 0.2
 --- !u!1 &1461481255
 GameObject:
   m_ObjectHideFlags: 0
