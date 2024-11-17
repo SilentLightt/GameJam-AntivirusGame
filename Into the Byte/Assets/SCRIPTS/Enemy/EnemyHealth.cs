@@ -31,7 +31,7 @@ public class EnemyHealth : MonoBehaviour
             playerProjectile = FindObjectOfType<PlayerProjectile>();
             if (playerProjectile == null)
             {
-                Debug.LogError("PlayerProjectile not found in the scene.");
+               // Debug.LogError("PlayerProjectile not found in the scene.");
             }
         }
 

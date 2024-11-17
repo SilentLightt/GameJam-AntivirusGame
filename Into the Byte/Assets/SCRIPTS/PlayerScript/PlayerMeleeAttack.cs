@@ -7,13 +7,18 @@ public class PlayerMeleeAttack : PlayerAttackBase
     public LayerMask enemyLayer;             // Layer mask to identify enemies
     public Transform attackPoint;            // The point from where the melee attack is performed
     public Animator animator;
+    public PlayerController controller;
+
     private void Start()
     {
+        Animator animator = GetComponentInParent<Animator>();
+        PlayerController controller = GetComponentInParent<PlayerController>();
+
         // Initialize your components, if necessary
     }
     public void Update()
     {
-        if (Input.GetButtonDown("Fire1") && currentWeaponType == WeaponType.Melee)
+        if (Input.GetButtonDown("Fire1"))
         {
             Attack(); // Trigger melee attack
             animator.SetTrigger("MeleeAttack");

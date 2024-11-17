@@ -19,7 +19,25 @@ public class PlayerAnimator : MonoBehaviour
         animator.SetBool("IsWalking", horizontal != 0);
         animator.SetBool("IsJumping", isJumping);
     }
-
+    public void TriggerRangeAttack(Vector2 direction)
+    {
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        {
+            // Horizontal range attack
+            if (direction.x > 0)
+                animator.SetTrigger("RangeAttackRight");
+            else
+                animator.SetTrigger("RangeAttackLeft");
+        }
+        else
+        {
+            // Vertical range attack
+            if (direction.y > 0)
+                animator.SetTrigger("RangeAttackUp");
+            else
+                animator.SetTrigger("RangeAttackDown");
+        }
+    }
     public void TriggerAttack()
     {
         animator.SetTrigger("RangeAttack");
