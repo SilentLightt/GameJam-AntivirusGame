@@ -4,7 +4,7 @@ public class HealthPickup : AutoPickup
 {
     public int healthAmount = 20; // Amount of health to restore
 
-    protected override void PerformPickup()
+    protected override void HandlePickup()
     {
         // Implement health pickup logic
         Debug.Log("Player picked up health!");

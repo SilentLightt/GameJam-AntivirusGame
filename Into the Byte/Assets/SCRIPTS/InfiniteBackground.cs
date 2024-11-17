@@ -32,7 +32,7 @@ public class InfiniteBackground : MonoBehaviour
         }
 
         // Initialize the active platforms and backgrounds arrays
-        activePlatforms = new GameObject[2];
+        activePlatforms = new GameObject[3];
         activeBackgrounds = new GameObject[2];
 
         // Instantiate the first platform at the start

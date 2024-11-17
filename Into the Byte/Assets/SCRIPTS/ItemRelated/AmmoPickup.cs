@@ -4,7 +4,7 @@ public class AmmoPickup : AutoPickup
 {
     public int ammoAmount = 10; // Amount of ammo to give
 
-    protected override void PerformPickup()
+    protected override void HandlePickup()
     {
         // Implement ammo pickup logic
         Debug.Log("Player picked up ammo!");
