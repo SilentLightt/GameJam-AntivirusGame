@@ -915,7 +915,7 @@ MonoBehaviour:
   - {fileID: 911259633}
   - {fileID: 1276117119}
   itemspawn:
-  - {fileID: 0}
+  - {fileID: 1354801638}
   enemies:
   - {fileID: 8645830048092192475, guid: 2eae0ba423ec3b54a8f8ae48dea457e0, type: 3}
   - {fileID: 4986730312001300235, guid: 48c05d0a20b70954ea56b6a57d4f6d9e, type: 3}
@@ -4242,7 +4242,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354801637}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
