@@ -1,8 +1,8 @@
 # INTO THE BYTE BY KUPACK STUDIOS
------Andrei Jara [Backend Developer] (https://github.com/SilentLightt)
-----EJ Lilo [Frontend Developer] (https://github.com/LilloEJ)
----Jhed Barbadillo [Front Developer] (https://github.com/JhedB)
---Christian Gabito [Game Designer/2D Game Artist] (https://github.com/BlitzHeat)
+-Andrei Jara [Backend Developer] (https://github.com/SilentLightt)
+-EJ Lilo [Frontend Developer] (https://github.com/LilloEJ)
+-Jhed Barbadillo [Front Developer] (https://github.com/JhedB)
+-Christian Gabito [Game Designer/2D Game Artist] (https://github.com/BlitzHeat)
 -Elijah Gaspar [2D Game Artist] (https://github.com/Gasparjru)
 
 Immerse yourself in a fast-paced digital battleground where cybersecurity meets adventure. 
