@@ -77,7 +77,7 @@ public class PlayerRangedAttack : PlayerAttackBase
     public Animator animator;              // Reference to the Animator
     public PlayerController controller;
     //public float attackDelay = 0.2f;      // Delay before firing the projectile (in seconds)
-    private float attackCooldown = 0.5f; // Cooldown in seconds
+    private float attackCooldown = 0.3f; // Cooldown in seconds
     private float lastAttackTime = 0f;
     private void Start()
     {
@@ -102,26 +102,27 @@ public class PlayerRangedAttack : PlayerAttackBase
     }
     //private IEnumerator AttackWithDelay()
     //{
-    //    // Optionally, trigger attack animation before the delay
-    //    //Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.position).normalized;
-    //    //animator.GetComponent<PlayerAnimator>().TriggerRangeAttack(direction);
+    //    //Optionally, trigger attack animation before the delay
+    //    Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.position).normalized;
+    //    animator.GetComponent<PlayerAnimator>().TriggerRangeAttack(direction);
 
-    //    //// Wait for the specified delay
-    //    //yield return new WaitForSeconds(attackDelay);
+    //    // Wait for the specified delay
+    //    yield return new WaitForSeconds(attackDelay);
 
-    //    //// Proceed to instantiate the projectile after the delay
-    //    //if (ammoManager.TryFireAmmo())
-    //    //{
-    //    //    // Instantiate the projectile
-    //    //    GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+    //    // Proceed to instantiate the projectile after the delay
+    //    if (ammoManager.TryFireAmmo())
+    //    {
+    //        // Instantiate the projectile
+    //        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
 
-    //    //    // Set the direction of the projectile
-    //    //    PlayerProjectile projectileScript = projectile.GetComponent<PlayerProjectile>();
-    //    //    if (projectileScript != null)
-    //    //    {
-    //    //        projectileScript.direction = direction;
-    //    //    }
-    //    //}
+    //        // Set the direction of the projectile
+    //        PlayerProjectile projectileScript = projectile.GetComponent<PlayerProjectile>();
+    //        if (projectileScript != null)
+    //        {
+    //            projectileScript.direction = direction;
+    //        }
+    //    }
+    //}
     //    if (ammoManager.TryFireAmmo())
     //    {
     //        Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.position).normalized;
@@ -172,54 +173,56 @@ public class PlayerRangedAttack : PlayerAttackBase
                 animator.GetComponent<PlayerAnimator>().TriggerRangeAttack(direction);
             }
         }
-        //if (ammoManager.TryFireAmmo())
-        //{
-        //    // Get the direction from the fire point to the mouse position
-        //    Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.position).normalized;
-
-        //    // Instantiate the projectile
-        //    GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-
-        //    // Set the direction of the projectile
-        //    PlayerProjectile projectileScript = projectile.GetComponent<PlayerProjectile>();
-        //    if (projectileScript != null)
+    }
+        //    if (ammoManager.TryFireAmmo())
         //    {
-        //        projectileScript.direction = direction;
+        //        // Get the direction from the fire point to the mouse position
+        //        Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.position).normalized;
+
+        //        // Instantiate the projectile
+        //        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+
+        //        // Set the direction of the projectile
+        //        PlayerProjectile projectileScript = projectile.GetComponent<PlayerProjectile>();
+        //        if (projectileScript != null)
+        //        {
+        //            projectileScript.direction = direction;
+        //        }
+
+        //        // Trigger the appropriate attack animation based on direction
+        //        animator.GetComponent<PlayerAnimator>().TriggerRangeAttack(direction);  // Call the animator's method to trigger the correct animation
         //    }
-
-        //    // Trigger the appropriate attack animation based on direction
-        //    animator.GetComponent<PlayerAnimator>().TriggerRangeAttack(direction);  // Call the animator's method to trigger the correct animation
         //}
-    }
 
-    void RotateFirePoint()
-    {
-        // Get the direction from the fire point to the mouse position
-        Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.position).normalized;
-
-        // Calculate the angle to rotate
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        // Apply the rotation to the firePoint
-        firePoint.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-    }
-
-    void TriggerAttackAnimation(Vector2 direction)
-    {
-        // Determine which animation to trigger based on the mouse direction
-        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        void RotateFirePoint()
         {
-            if (direction.x > 0)
-                animator.SetTrigger("RangeAttackRight");
-            else
-                animator.SetTrigger("RangeAttackLeft");
+            // Get the direction from the fire point to the mouse position
+            Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.position).normalized;
+
+            // Calculate the angle to rotate
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+            // Apply the rotation to the firePoint
+            firePoint.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         }
-        else
+
+        void TriggerAttackAnimation(Vector2 direction)
         {
-            if (direction.y > 0)
-                animator.SetTrigger("RangeAttackUp");
+            // Determine which animation to trigger based on the mouse direction
+            if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+            {
+                if (direction.x > 0)
+                    animator.SetTrigger("RangeAttackRight");
+                else
+                    animator.SetTrigger("RangeAttackLeft");
+            }
             else
-                animator.SetTrigger("RangeAttackDown");
+            {
+                if (direction.y > 0)
+                    animator.SetTrigger("RangeAttackUp");
+                else
+                    animator.SetTrigger("RangeAttackDown");
+            }
         }
     }
-}
+

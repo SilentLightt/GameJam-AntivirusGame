@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8234947070159222687}
   - component: {fileID: 4760579517974552854}
-  - component: {fileID: 7269687962482727587}
   - component: {fileID: 3651499818763906031}
+  - component: {fileID: 4838397646141868372}
   m_Layer: 0
   m_Name: BulletTest
   m_TagString: Untagged
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea444508ab9cfb9438c3461a53dce813, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,8 +86,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &7269687962482727587
-CircleCollider2D:
+--- !u!114 &3651499818763906031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094421626916216837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a6e4d92a22969448ab0fc359fb01419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 280.6
+  lifetime: 2
+  damage: 10
+  direction: {x: 1, y: 0}
+--- !u!60 &4838397646141868372
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -119,21 +135,26 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &3651499818763906031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1094421626916216837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a6e4d92a22969448ab0fc359fb01419, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 280.6
-  lifetime: 2
-  damage: 10
-  direction: {x: 1, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.21875, y: 2.421875}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.71875, y: -0.0859375}
+      - {x: 0.71875, y: 0.1640625}
+      - {x: 0.59375, y: 0.2421875}
+      - {x: 0.4375, y: 0.4140625}
+      - {x: 0.15625, y: 0.5703125}
+      - {x: -0.46875, y: 0.5703125}
+      - {x: -0.59375, y: 0.4296875}
+      - {x: -0.59375, y: -0.4296875}
+      - {x: -0.453125, y: -0.5703125}
+      - {x: 0.140625, y: -0.5703125}
+      - {x: 0.609375, y: -0.3359375}
+  m_UseDelaunayMesh: 0
