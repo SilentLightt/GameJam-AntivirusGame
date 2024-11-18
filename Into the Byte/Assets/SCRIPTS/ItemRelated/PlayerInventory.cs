@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
@@ -21,6 +22,8 @@ public class PlayerInventory : MonoBehaviour
         // Load the coin count from PlayerPrefs if it exists
         coinCount = PlayerPrefs.GetInt("CoinCount", 0);
     }
+
+    
 
     public void AddCoin(int amount)
     {
