@@ -613,6 +613,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 8443243345520888715}
   easeHealthSlider: {fileID: 6965863269326702007}
+  enemyCanvas: {fileID: 0}
 --- !u!114 &2077695360569213252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,6 +627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 7129c8afb281e794c8d02a9daa4745f5, type: 2}
+  coinPrefab: {fileID: 843220345269350463, guid: 44eb5c5e42aa69448a3f8ea481e22af9, type: 3}
   firingPoint: {fileID: 2940151924714442341}
   projectilePrefab: {fileID: 7630114150772060237, guid: 6af2f2b531741fa458049bba19a32645, type: 3}
 --- !u!1 &5957585045349099191

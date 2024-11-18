@@ -32,4 +32,9 @@ public class Coin : MonoBehaviour
         GameManager.Instance.AddCoin(1);
         Destroy(gameObject);
     }
+    public void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, pickupRange);
+    }
 }

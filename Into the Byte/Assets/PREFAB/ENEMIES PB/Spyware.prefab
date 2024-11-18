@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: cc114a5752a64ad4ab661b4cd31363b5, type: 2}
+  coinPrefab: {fileID: 843220345269350463, guid: 44eb5c5e42aa69448a3f8ea481e22af9, type: 3}
 --- !u!114 &8874685909425399591
 MonoBehaviour:
   m_ObjectHideFlags: 0

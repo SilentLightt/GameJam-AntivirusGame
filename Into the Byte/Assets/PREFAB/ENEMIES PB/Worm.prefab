@@ -282,6 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 9caf541cea4019d4eaebc1a2c23d5f7e, type: 2}
+  coinPrefab: {fileID: 843220345269350463, guid: 44eb5c5e42aa69448a3f8ea481e22af9, type: 3}
   firingPoint: {fileID: 2691218993750922309}
   projectilePrefab: {fileID: 8463597197952085401, guid: 86a7c54007bacbd468e48f21d91b65a6, type: 3}
 --- !u!114 &2847234222479369938
