@@ -155,15 +155,16 @@ public class EnemySpawner : MonoBehaviour
 
     public void EnemyDefeated(GameObject enemy)
     {
-        if (activeEnemies.Contains(enemy))
-        {
-            activeEnemies.Remove(enemy);
-            Debug.Log("Enemy defeated and removed. Active enemies remaining: " + activeEnemies.Count);
-        }
-        else
-        {
-            Debug.LogWarning("Tried to remove an enemy that was not in the active list.");
-        }
+        activeEnemies.Remove(enemy);
+        //if (activeEnemies.Contains(enemy))
+        //{
+        //    activeEnemies.Remove(enemy);
+        //    Debug.Log("Enemy defeated and removed. Active enemies remaining: " + activeEnemies.Count);
+        //}
+        //else
+        //{
+        //    Debug.LogWarning("Tried to remove an enemy that was not in the active list.");
+        //}
     }
 }
 

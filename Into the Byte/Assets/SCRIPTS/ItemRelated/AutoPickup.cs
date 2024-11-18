@@ -15,6 +15,7 @@ public abstract class AutoPickup : MonoBehaviour
         {
             pickupText.gameObject.SetActive(false); // Hide the text initially
         }
+        pickupText = FindFirstObjectByType<TextMeshProUGUI>();
     }
 
     void Update()
