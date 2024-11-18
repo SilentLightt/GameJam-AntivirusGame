@@ -12,6 +12,7 @@ public abstract class EnemyBase : MonoBehaviour
     public event System.Action<float> OnHealthChanged; // Notify for UI updates
     private float deathdelay =1f;
     protected EnemyHealth enemyhp;
+
     protected virtual void Awake()
     {
         // Find the EnemyAnimations component in the same GameObject or in children
@@ -123,8 +124,9 @@ public abstract class EnemyBase : MonoBehaviour
 
     public virtual void Die()
     {
-        Debug.Log("Enemy died.");
         PlayDeathAnimation();
+        FindObjectOfType<EnemySpawner>()?.EnemyDefeated(gameObject);
+
         Destroy(gameObject, deathdelay);
     }
     public void OnDrawGizmosSelected()

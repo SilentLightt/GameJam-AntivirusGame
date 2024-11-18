@@ -63,8 +63,9 @@
 //    }
 //}
 
-using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -75,94 +76,98 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Wave Settings")]
     [SerializeField] int maxWaves = 10;
-    [SerializeField] int enemiesPerWave = 3;
-    [SerializeField] int currentWave = 1;
-    [SerializeField] int enemiesRemaining;
-    [SerializeField] List<GameObject> spawnedEnemies = new List<GameObject>();
-
-    [Header("Spawn Timers")]
     [SerializeField] float spawnInterval = 3f;
     private float spawnTimer;
+    [SerializeField] int currentWave = 1;
+    [SerializeField] int enemiesPerWave = 3;
+    [SerializeField] int enemiesRemainingToSpawn;
+    [SerializeField] List<GameObject> activeEnemies = new List<GameObject>();
 
-    void Start()
+    private void Start()
     {
         spawnTimer = spawnInterval;
-        StartNewWave();
+        enemiesRemainingToSpawn = enemiesPerWave;
+        StartWave();
     }
 
-    void Update()
+    private void Update()
     {
+        if (currentWave > maxWaves) return;
+
         spawnTimer -= Time.deltaTime;
 
-        if (spawnTimer <= 0 && enemiesRemaining > 0)
+        // Spawn enemies at intervals if we still have some to spawn
+        if (spawnTimer <= 0 && enemiesRemainingToSpawn > 0)
         {
             SpawnEnemy();
+            enemiesRemainingToSpawn--;
             spawnTimer = spawnInterval;
         }
-    }
 
-    void StartNewWave()
-    {
-        if (currentWave > maxWaves)
+        // Check if all active enemies have been defeated
+        if (enemiesRemainingToSpawn == 0 && activeEnemies.Count == 0)
         {
-            Debug.Log("All waves completed!");
-            return;
+            SpawnRandomItem();
+            PrepareNextWave();
         }
-
-        Debug.Log("Starting Wave: " + currentWave);
-        enemiesRemaining = enemiesPerWave;
-        spawnTimer = spawnInterval;
     }
 
-    void SpawnEnemy()
+    private void SpawnEnemy()
     {
         if (spawnPoints.Length == 0 || enemies.Length == 0) return;
 
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
         GameObject enemyPrefab = enemies[Random.Range(0, enemies.Length)];
-        GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-        spawnedEnemies.Add(enemy);
+        GameObject spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
 
-        //EnemyBase enemyBase = enemy.GetComponent<EnemyBase>();
-        //if (enemyBase != null)
-        //{
-        //    enemyBase.Die(); // Subscribe to enemy death event
-        //}
-
-        enemiesRemaining--;
+        activeEnemies.Add(spawnedEnemy);
     }
 
-    void OnEnemyDeath(GameObject enemy)
+    private void SpawnRandomItem()
     {
-        spawnedEnemies.Remove(enemy);
+        if (items.Length == 0) return;
 
-        // Check if all enemies in the wave are defeated
-        if (enemiesRemaining <= 0 && spawnedEnemies.Count == 0)
+        Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        GameObject itemPrefab = items[Random.Range(0, items.Length)];
+        Instantiate(itemPrefab, spawnPoint.position, spawnPoint.rotation);
+    }
+
+    private void PrepareNextWave()
+    {
+        if (currentWave < maxWaves)
         {
-            CompleteWave();
+            currentWave++;
+            enemiesPerWave++;
+            enemiesRemainingToSpawn = enemiesPerWave;
+            spawnTimer = spawnInterval; // Reset the spawn timer for the next wave
+            Debug.Log("Wave " + currentWave + " starting with " + enemiesPerWave + " enemies.");
+        }
+        else
+        {
+            Debug.Log("All waves completed!");
         }
     }
 
-    void CompleteWave()
+    private void StartWave()
     {
-        Debug.Log("Wave " + currentWave + " completed!");
+        Debug.Log("Starting wave: " + currentWave);
+    }
 
-        // Spawn one random item at the end of each wave
-        if (items.Length > 0)
+    public void EnemyDefeated(GameObject enemy)
+    {
+        if (activeEnemies.Contains(enemy))
         {
-            Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-            GameObject item = items[Random.Range(0, items.Length)];
-            Instantiate(item, spawnPoint.position, spawnPoint.rotation);
+            activeEnemies.Remove(enemy);
+            Debug.Log("Enemy defeated and removed. Active enemies remaining: " + activeEnemies.Count);
         }
-
-        // Prepare for the next wave
-        currentWave++;
-        enemiesPerWave++;
-
-        if (currentWave <= maxWaves)
+        else
         {
-            StartNewWave();
+            Debug.LogWarning("Tried to remove an enemy that was not in the active list.");
         }
     }
 }
+
+
+
+
 

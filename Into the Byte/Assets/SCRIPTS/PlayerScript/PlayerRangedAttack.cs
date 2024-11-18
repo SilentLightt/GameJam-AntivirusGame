@@ -76,7 +76,6 @@ public class PlayerRangedAttack : PlayerAttackBase
     public AmmoManager ammoManager;        // Reference to the AmmoManager script
     public Animator animator;              // Reference to the Animator
     public PlayerController controller;
-    public float attackDelay = 0.2f;      // Delay before firing the projectile (in seconds)
 
     private void Start()
     {
@@ -87,7 +86,7 @@ public class PlayerRangedAttack : PlayerAttackBase
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButton("Fire2"))
         {
             Attack();
         }
@@ -99,18 +98,16 @@ public class PlayerRangedAttack : PlayerAttackBase
 
         RotateFirePoint();
     }
-    private IEnumerator AttackWithDelay()
+  
+    public override void Attack()
     {
-        // Optionally, trigger attack animation before the delay
-        Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.position).normalized;
-        animator.GetComponent<PlayerAnimator>().TriggerRangeAttack(direction);
+        //StartCoroutine(AttackWithDelay());
 
-        // Wait for the specified delay
-        yield return new WaitForSeconds(attackDelay);
-
-        // Proceed to instantiate the projectile after the delay
         if (ammoManager.TryFireAmmo())
         {
+            // Get the direction from the fire point to the mouse position
+            Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.position).normalized;
+
             // Instantiate the projectile
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
 
@@ -120,57 +117,10 @@ public class PlayerRangedAttack : PlayerAttackBase
             {
                 projectileScript.direction = direction;
             }
+
+            // Trigger the appropriate attack animation based on direction
+            animator.GetComponent<PlayerAnimator>().TriggerRangeAttack(direction);  // Call the animator's method to trigger the correct animation
         }
-        //if(ammoManager.TryFireAmmo())
-        // {
-        //     Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.position).normalized;
-
-        //     // Trigger the attack animation based on the direction
-        //     animator.GetComponent<PlayerAnimator>().TriggerRangeAttack(direction);
-
-        //     // Instantiate the projectile immediately
-        //     GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-
-        //     // Set the direction of the projectile
-        //     PlayerProjectile projectileScript = projectile.GetComponent<PlayerProjectile>();
-        //     if (projectileScript != null)
-        //     {
-        //         projectileScript.direction = direction;
-        //     }
-
-        //     // Wait for the specified delay before enabling the projectile movement
-        //     yield return new WaitForSeconds(attackDelay);
-
-        //     // Enable the projectile's movement after the delay (if necessary)
-        //     if (projectileScript != null)
-        //     {
-        //         projectileScript.enabled = true;
-        //     }
-        // }
-
-    }
-    public override void Attack()
-    {
-        StartCoroutine(AttackWithDelay());
-
-        //if (ammoManager.TryFireAmmo())
-        //{
-        //    // Get the direction from the fire point to the mouse position
-        //    Vector2 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - firePoint.position).normalized;
-
-        //    // Instantiate the projectile
-        //    GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-
-        //    // Set the direction of the projectile
-        //    PlayerProjectile projectileScript = projectile.GetComponent<PlayerProjectile>();
-        //    if (projectileScript != null)
-        //    {
-        //        projectileScript.direction = direction;
-        //    }
-
-        //    // Trigger the appropriate attack animation based on direction
-        //    animator.GetComponent<PlayerAnimator>().TriggerRangeAttack(direction);  // Call the animator's method to trigger the correct animation
-        //}
     }
 
     void RotateFirePoint()
