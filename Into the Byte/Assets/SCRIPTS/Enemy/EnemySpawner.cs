@@ -71,8 +71,10 @@ public class EnemySpawner : MonoBehaviour
 {
     [Header("Spawn Settings")]
     [SerializeField] Transform[] spawnPoints;
+    [SerializeField] Transform[] itemspawn;
     [SerializeField] GameObject[] enemies;
     [SerializeField] GameObject[] items;
+    [SerializeField] private GameManager gameManager;  // Reference to GameManager
 
     [Header("Wave Settings")]
     [SerializeField] int maxWaves = 10;
@@ -87,7 +89,9 @@ public class EnemySpawner : MonoBehaviour
     {
         spawnTimer = spawnInterval;
         enemiesRemainingToSpawn = enemiesPerWave;
-        StartWave();
+        gameManager.StartWave(currentWave);
+        gameManager.GetComponent<GameManager>();
+
     }
 
     private void Update()
@@ -127,19 +131,25 @@ public class EnemySpawner : MonoBehaviour
     {
         if (items.Length == 0) return;
 
-        Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        Transform itemspawns = itemspawn[Random.Range(0, itemspawn.Length)];
         GameObject itemPrefab = items[Random.Range(0, items.Length)];
-        Instantiate(itemPrefab, spawnPoint.position, spawnPoint.rotation);
+        Instantiate(itemPrefab, itemspawns.position, itemspawns.rotation);
     }
 
     private void PrepareNextWave()
     {
         if (currentWave < maxWaves)
         {
+            //currentWave++;
+            //enemiesPerWave++;
+            //enemiesRemainingToSpawn = enemiesPerWave;
+            //spawnTimer = spawnInterval; // Reset the spawn timer for the next wave
+            //Debug.Log("Wave " + currentWave + " starting with " + enemiesPerWave + " enemies.");
             currentWave++;
             enemiesPerWave++;
             enemiesRemainingToSpawn = enemiesPerWave;
-            spawnTimer = spawnInterval; // Reset the spawn timer for the next wave
+
+            gameManager.PrepareNextWave(currentWave);
             Debug.Log("Wave " + currentWave + " starting with " + enemiesPerWave + " enemies.");
         }
         else
@@ -148,14 +158,16 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private void StartWave()
-    {
-        Debug.Log("Starting wave: " + currentWave);
-    }
+    //private void StartWave()
+    //{
+    //    Debug.Log("Starting wave: " + currentWave);
+    //}
 
     public void EnemyDefeated(GameObject enemy)
     {
         activeEnemies.Remove(enemy);
+        Destroy(enemy);
+        gameManager.EnemyDefeated();  // Notify GameManager
         //if (activeEnemies.Contains(enemy))
         //{
         //    activeEnemies.Remove(enemy);
