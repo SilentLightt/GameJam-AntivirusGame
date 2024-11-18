@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -121,7 +121,364 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Ransomware Attack_0
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 237
+        width: 246
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1355a5de92b4a449a95db925f368e05
+      internalID: -1709014012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ransomware Attack_1
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 237
+        width: 252
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0e11ef1e698f9f4dac69523c3fc4ab0
+      internalID: 1494774023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ransomware Attack_2
+      rect:
+        serializedVersion: 2
+        x: 1849
+        y: 237
+        width: 246
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 984ad9af640256546b88bec854864f58
+      internalID: 1284293864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ransomware Attack_3
+      rect:
+        serializedVersion: 2
+        x: 2646
+        y: 237
+        width: 252
+        height: 406
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7743f6457c34d784993eaf369ea13dc8
+      internalID: -1750449944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ransomware Attack_4
+      rect:
+        serializedVersion: 2
+        x: 3450
+        y: 237
+        width: 245
+        height: 420
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f0bd3a2d4788054ca6561180bf7b02f
+      internalID: 1375323329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ransomware Attack_5
+      rect:
+        serializedVersion: 2
+        x: 4247
+        y: 237
+        width: 252
+        height: 460
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eabb6d9ab486efb4a872b2c4e07935e4
+      internalID: 257200089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ransomware Attack_6
+      rect:
+        serializedVersion: 2
+        x: 5050
+        y: 237
+        width: 246
+        height: 473
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4d461abc0d6bf3419e6cd8c3eeaaece
+      internalID: -1100916845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ransomware Attack_7
+      rect:
+        serializedVersion: 2
+        x: 5847
+        y: 237
+        width: 252
+        height: 493
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1e832755da499a489fa3058a2e6b1bc
+      internalID: -1489826227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ransomware Attack_8
+      rect:
+        serializedVersion: 2
+        x: 6646
+        y: 237
+        width: 250
+        height: 513
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a06c27f4e7784c549aeb7c2820f1f1be
+      internalID: 214980003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ransomware Attack_9
+      rect:
+        serializedVersion: 2
+        x: 7447
+        y: 237
+        width: 252
+        height: 513
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b765368c7f1db814c9ac421288e11072
+      internalID: -454319060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ransomware Attack_10
+      rect:
+        serializedVersion: 2
+        x: 8245
+        y: 237
+        width: 252
+        height: 513
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08ab9d7461eb98046a951a47561f38a4
+      internalID: -1864431427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ransomware Attack_11
+      rect:
+        serializedVersion: 2
+        x: 9048
+        y: 237
+        width: 249
+        height: 506
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddd0d02958d70464f85b51cf2b7b2fa6
+      internalID: 378213013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ransomware Attack_12
+      rect:
+        serializedVersion: 2
+        x: 9845
+        y: 237
+        width: 252
+        height: 526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a29347f1d47a8924f87a3bb4460251bf
+      internalID: -1291702056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ransomware Attack_13
+      rect:
+        serializedVersion: 2
+        x: 10648
+        y: 237
+        width: 246
+        height: 513
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f247a535e8c8b48b95fe12d9dc439f
+      internalID: 1818627077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ransomware Attack_14
+      rect:
+        serializedVersion: 2
+        x: 11445
+        y: 237
+        width: 252
+        height: 526
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca4876d8d0701c2498d0e75e7e2c29b6
+      internalID: 1026944643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ransomware Attack_15
+      rect:
+        serializedVersion: 2
+        x: 12249
+        y: 237
+        width: 245
+        height: 506
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffd3daccc1c25dc4d9484f98bb9c7ff9
+      internalID: -1713455331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ransomware Attack_16
+      rect:
+        serializedVersion: 2
+        x: 13046
+        y: 237
+        width: 252
+        height: 513
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d054301653e5907459ae05ac3779fa8f
+      internalID: 438846806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +489,24 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ransomware Attack_0: -1709014012
+      Ransomware Attack_1: 1494774023
+      Ransomware Attack_10: -1864431427
+      Ransomware Attack_11: 378213013
+      Ransomware Attack_12: -1291702056
+      Ransomware Attack_13: 1818627077
+      Ransomware Attack_14: 1026944643
+      Ransomware Attack_15: -1713455331
+      Ransomware Attack_16: 438846806
+      Ransomware Attack_2: 1284293864
+      Ransomware Attack_3: -1750449944
+      Ransomware Attack_4: 1375323329
+      Ransomware Attack_5: 257200089
+      Ransomware Attack_6: -1100916845
+      Ransomware Attack_7: -1489826227
+      Ransomware Attack_8: 214980003
+      Ransomware Attack_9: -454319060
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

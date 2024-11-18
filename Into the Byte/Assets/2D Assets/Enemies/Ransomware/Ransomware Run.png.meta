@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -121,7 +121,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Ransomware Run_0
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 245
+        width: 347
+        height: 334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dc2eafae74b8b6429890642843ce83a
+      internalID: 1010743548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ransomware Run_2
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 253
+        width: 391
+        height: 333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 666c80078882fa8478639add708b1249
+      internalID: 1994729554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ransomware Run_4
+      rect:
+        serializedVersion: 2
+        x: 1854
+        y: 270
+        width: 418
+        height: 332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd786a134244816438a07a44ed6a60e7
+      internalID: -662095695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ransomware Run_6
+      rect:
+        serializedVersion: 2
+        x: 2653
+        y: 253
+        width: 391
+        height: 333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d04f671d171f94478cb90bc90dab28c
+      internalID: -1300984494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ransomware Run_8
+      rect:
+        serializedVersion: 2
+        x: 3454
+        y: 245
+        width: 357
+        height: 334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7b2be4cd3b3f37439fb2276fb0b9b05
+      internalID: 162622366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +237,38 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ransomware Run_0: 1010743548
+      Ransomware Run_1: -481817684
+      Ransomware Run_10: 73728368
+      Ransomware Run_11: -1840078717
+      Ransomware Run_12: -336319964
+      Ransomware Run_13: -1537421505
+      Ransomware Run_14: -397091184
+      Ransomware Run_15: 1247261341
+      Ransomware Run_16: 123343813
+      Ransomware Run_17: 1983559052
+      Ransomware Run_18: 1153058942
+      Ransomware Run_19: 898863677
+      Ransomware Run_2: 1994729554
+      Ransomware Run_20: -36520669
+      Ransomware Run_21: -567346909
+      Ransomware Run_22: -1072909019
+      Ransomware Run_23: -864579066
+      Ransomware Run_24: -1132760374
+      Ransomware Run_25: 1750954704
+      Ransomware Run_26: 970117113
+      Ransomware Run_27: -895702925
+      Ransomware Run_28: 425479621
+      Ransomware Run_29: -1538308583
+      Ransomware Run_3: -1819549071
+      Ransomware Run_30: -1569827788
+      Ransomware Run_4: -662095695
+      Ransomware Run_5: -545821753
+      Ransomware Run_6: -1300984494
+      Ransomware Run_7: -1859552652
+      Ransomware Run_8: 162622366
+      Ransomware Run_9: -487557133
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
