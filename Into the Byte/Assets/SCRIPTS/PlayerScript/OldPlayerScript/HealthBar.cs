@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; // Scene
+
 
 public class HealthBar : MonoBehaviour
 {
@@ -15,8 +17,11 @@ public class HealthBar : MonoBehaviour
     private float lerpSpeed = 0.05f;
     private Rigidbody2D rbplayer;
 
-   // public GameObject GameOverCanvas;
+   public GameObject GameOverCanvas;
     public GameObject Player;
+
+    public string sceneName; // Name of the scene to reload
+
 
     void Awake()
     {
@@ -85,16 +90,28 @@ public class HealthBar : MonoBehaviour
         Debug.Log("Player died!");
 
         // Activate Game Over Canvas and disable player
-        //if (GameOverCanvas != null)
-        //{
-        //    GameOverCanvas.SetActive(true);
-        //}
+        if (GameOverCanvas != null)
+        {
+           GameOverCanvas.SetActive(true);
+        }
+
+        
 
         if (Player != null)
         {
             Player.SetActive(false);
             Time.timeScale = 0f;
+            SceneLoader();
         }
     }
+
+    public void SceneLoader()
+    {
+        // Load the scene by name
+        SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1f; // Resume the game
+    }
+
+
 }
 

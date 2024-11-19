@@ -22,6 +22,7 @@ public class MainMenuScript : MonoBehaviour
     public void backToMainMenu() 
     {
         SceneManager.LoadSceneAsync(0);
+        Time.timeScale = 1f; // Resume the game
     }
     public void playMainGame()
     {
