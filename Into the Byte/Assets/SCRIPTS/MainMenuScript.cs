@@ -7,13 +7,13 @@ public class MainMenuScript : MonoBehaviour
 {
     public void playBtn()
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadSceneAsync(2);
         Time.timeScale = 1f; // Resume the game
     }
 
     public void settingsBtn()
     {
-        SceneManager.LoadSceneAsync(4);
+        SceneManager.LoadSceneAsync(5);
     }
     
     public void quitBtn()
@@ -22,13 +22,13 @@ public class MainMenuScript : MonoBehaviour
     }
     public void backToMainMenu() 
     {
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadSceneAsync(1);
         Time.timeScale = 1f; // Resume the game
 
     }
     public void playMainGame()
     {
-        SceneManager.LoadSceneAsync(2);
+        SceneManager.LoadSceneAsync(3);
         Time.timeScale = 1f; // Resume the game
 
     }
