@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Ammo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 44d777aa1aa9c8d44b393d9406adbfae, type: 2}
-  m_sharedMaterial: {fileID: -7530098322260778318, guid: 44d777aa1aa9c8d44b393d9406adbfae, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f905fb597742fe46b9435f8044cdd71, type: 2}
+  m_sharedMaterial: {fileID: 7079217452353851115, guid: 8f905fb597742fe46b9435f8044cdd71, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

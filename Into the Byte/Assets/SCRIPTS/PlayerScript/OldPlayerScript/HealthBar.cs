@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; // Scene
 
 public class HealthBar : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class HealthBar : MonoBehaviour
 
    // public GameObject GameOverCanvas;
     public GameObject Player;
+    public string sceneName; // Name of the scene to reload
+
 
     void Awake()
     {
@@ -94,7 +97,16 @@ public class HealthBar : MonoBehaviour
         {
             Player.SetActive(false);
             Time.timeScale = 0f;
+            SceneLoader();
         }
+
+    }
+
+    public void SceneLoader()
+    {
+        // Load the scene by name
+        SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1f; // Resume the game
     }
 }
 
