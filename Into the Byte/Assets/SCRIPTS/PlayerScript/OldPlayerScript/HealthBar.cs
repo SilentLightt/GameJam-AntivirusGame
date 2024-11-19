@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement; // Scene
 
-
 public class HealthBar : MonoBehaviour
 {
     public static HealthBar instance;
@@ -17,9 +16,8 @@ public class HealthBar : MonoBehaviour
     private float lerpSpeed = 0.05f;
     private Rigidbody2D rbplayer;
 
-   public GameObject GameOverCanvas;
+   // public GameObject GameOverCanvas;
     public GameObject Player;
-
     public string sceneName; // Name of the scene to reload
 
 
@@ -90,12 +88,10 @@ public class HealthBar : MonoBehaviour
         Debug.Log("Player died!");
 
         // Activate Game Over Canvas and disable player
-        if (GameOverCanvas != null)
-        {
-           GameOverCanvas.SetActive(true);
-        }
-
-        
+        //if (GameOverCanvas != null)
+        //{
+        //    GameOverCanvas.SetActive(true);
+        //}
 
         if (Player != null)
         {
@@ -103,6 +99,7 @@ public class HealthBar : MonoBehaviour
             Time.timeScale = 0f;
             SceneLoader();
         }
+
     }
 
     public void SceneLoader()
@@ -111,7 +108,5 @@ public class HealthBar : MonoBehaviour
         SceneManager.LoadScene(sceneName);
         Time.timeScale = 1f; // Resume the game
     }
-
-
 }
 

@@ -12,6 +12,7 @@ public abstract class EnemyBase : MonoBehaviour
     public event System.Action<float> OnHealthChanged; // Notify for UI updates
     private float deathdelay =1f;
     protected EnemyHealth enemyhp;
+    [SerializeField] private GameObject coinPrefab;
 
     protected virtual void Awake()
     {
@@ -126,8 +127,16 @@ public abstract class EnemyBase : MonoBehaviour
     {
         PlayDeathAnimation();
         FindObjectOfType<EnemySpawner>()?.EnemyDefeated(gameObject);
+        TryDropCoin();
 
         Destroy(gameObject, deathdelay);
+    }
+    private void TryDropCoin()
+    {
+        if (Random.value <= enemyStats.coinDropChance)
+        {
+            Instantiate(coinPrefab, transform.position, Quaternion.identity);
+        }
     }
     public void OnDrawGizmosSelected()
     {

@@ -8,6 +8,7 @@ public class MainMenuScript : MonoBehaviour
     public void playBtn()
     {
         SceneManager.LoadSceneAsync(1);
+        Time.timeScale = 1f; // Resume the game
     }
 
     public void settingsBtn()
@@ -23,9 +24,12 @@ public class MainMenuScript : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(0);
         Time.timeScale = 1f; // Resume the game
+
     }
     public void playMainGame()
     {
         SceneManager.LoadSceneAsync(2);
+        Time.timeScale = 1f; // Resume the game
+
     }
 }
